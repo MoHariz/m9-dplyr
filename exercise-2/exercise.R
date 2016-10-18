@@ -2,25 +2,28 @@
 # Use a different appraoch to accomplish the same tasks as exercise-1
 
 # Install devtools package: allows installations from GitHub
-install.packages('devtools')
+# install.packages('devtools')
 
 # Install "fueleconomy" package from GitHub
-devtools::install_github("hadley/fueleconomy")
+# devtools::install_github("hadley/fueleconomy")
 
 # Require/library the fueleconomy package
+#install.packages("dplyr")
 
 
+require("fueleconomy")
+library("dplyr")
 # You should have have access to the `vehicles` data.frame
 
 
 # Create a data.frame of vehicles from 1997
-
+cars.1997 <- filter(vehicles, year == 1997)
 
 # Use the `unique` function to verify that there is only 1 value in the `year` column of your new data.frame
 
 
 # Create a data.frame of 2-Wheel Drive vehicles that get more than 20 miles/gallon in the city
-
+two.wheels.more.than.20.cty <- filter(filter(cars.1997, drive == "Front-Wheel Drive" | drive == "Rear-Wheel Drive"), cty > 20)
 
 # Of those vehicles, what is the vehicle ID of the vehicle with the worst hwy mpg?
 
